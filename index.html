@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>TodoIt</title>
+  <meta name="viewport" content="width=device-width">
+  <script src="https://rawgithub.com/wanasit/chrono/master/chrono.min.js"></script>
+</head>
+<body ng-controller="FrameController">
+  <div ng-controller="DashboardController">
+    <h1>{{today}}</h1>
+    <h2>Welcome back, {{name}}!</h2>
+    <input type="text" placeholder="New entry" ng-model="entryInput" />
+
+    <ul>
+      <li>
+        <a ng-click="keepDate=dateFilters['all']">All</a>
+      </li>
+      <li>
+        <a ng-click="keepDate=dateFilters['today']">Today</a>
+      </li>
+      <li>
+        <a ng-click="keepDate=dateFilters['tomorrow']">Tomorrow</a>
+      </li>
+    </ul>
+
+    <ul>
+      <li ng-repeat="events in events | filter:excludeByDate">{{event.summary}}</li>
+    </ul>    
+  </div>
+
+<script src="lib/angular.js"></script>
+<script src="lib/angular-route.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/directives.js"></script>
+<script src="js/services.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
