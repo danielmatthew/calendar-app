@@ -3,7 +3,6 @@
 <head>
   <title>TodoIt</title>
   <meta name="viewport" content="width=device-width">
-  <script src="https://rawgithub.com/wanasit/chrono/master/chrono.min.js"></script>
 </head>
 <body ng-controller="FrameController">
   <div ng-controller="DashboardController">
@@ -25,11 +24,16 @@
 
     <ul>
       <li ng-repeat="events in events | filter:excludeByDate">{{event.summary}}</li>
-    </ul>    
+    </ul> 
+
+    <div our-calendar ng-model="date" showshortmonth="true">
+      <h3>On this day:</h3>
+    </div>   
   </div>
 
 <script src="lib/angular.js"></script>
 <script src="lib/angular-route.js"></script>
+<script src="lib/chrono.min.js"></script>
 <script src="js/filters.js"></script>
 <script src="js/controllers.js"></script>
 <script src="js/directives.js"></script>
